@@ -16,16 +16,14 @@ It is O(1) (constant) because only one stack frame is used to get each value.
 When simplified, the runtime is at worst O(n^2) where n is the length of the name lists -- this is due to the nested `for` loops. It may run slightly better if the name files weren't of equal length, and especially if one file was very short.
 
 6. What is the space complexity of the provided code in `names.py`?
-
 If including the portion of code that reads and splits the names from the text files, it is O(n), because the variables containing lists names_1 and names_2 take up more memory based on the size of the read files.
 
 If we're only considering the code after the instantiation of `duplicates` (which takes up O(1) space, by the way), it is O(1) because we're only ever storing variables name_1 and name_2. The space is not relative to the size of lists names_1 and names_2.
 
 7. What is the runtime complexity of your optimized code in `names.py`?
-It is O(n) (linear), where n is the lengths of the lists. I still have two for loops, but they are not nested - they happen on the same "level" of the code.
+It is O(n log n), where n is the lengths of the lists. I still have two for loops, but they are not nested - they happen on the same "level" of the code. The loops run at n compexity, and the `.append` and `.contains` binary search tree methods run at log n time, because about half of the search elements are removed at each pass.
 
 8. What is the space complexity of your optimized code in `names.py`?
-
 Again, if including the portion of code that reads and splits the names from the text files, it is O(n), because the variables containing lists names_1 and names_2 take up more memory based on the size of the read files.
 
 If only considering the edited code, it is at worst O(n) where n is the height of the tree (assuming it's balanced). Everything else in that portion of the code takes up constant space.
